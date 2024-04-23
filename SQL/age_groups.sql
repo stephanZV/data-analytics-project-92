@@ -8,3 +8,4 @@ SELECT
 FROM customers
 GROUP BY age_category
 ORDER BY age_category;
+/* использовали кейс для группировки по возрасту*/
