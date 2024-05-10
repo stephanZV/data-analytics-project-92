@@ -81,7 +81,7 @@ select
     bbbb.seller,
     bbbb.average_income
 from bbbb
-where bbbb.average_income > 276610
+where bbbb.average_income > (select avg(average_income) from bbbb)
 order by bbbb.average_income
 /* продавцы у кого средняя прибыль больше средней */
 SELECT 
