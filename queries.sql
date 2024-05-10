@@ -14,7 +14,7 @@ ORDER BY selling_month
 
 /* запрос подсчитывает выручку по месяцам */
 with bububub as (
-    select distinct
+    select 
         sales.sales_person_id as seller,
         count(sales.sales_id) as operations,
         sum(products.price * sales.quantity) as income
@@ -56,7 +56,7 @@ from tab;
 /* прибыль по дням */
 with bububub as (
     select 
-        distinct sales.sales_person_id as seller,
+         sales.sales_person_id as seller,
         count(sales.sales_id) as operations,
         sum(products.price * sales.quantity) as income
     from sales
@@ -85,9 +85,7 @@ where bbbb.average_income > (select avg(average_income) from bbbb)
 order by bbbb.average_income
 /* продавцы у кого средняя прибыль больше средней */
 SELECT 
-    DISTINCT concat(
-        extract(YEAR FROM sale_date), '-', extract(MONTH FROM sale_date)
-    ) AS selling_month,
+    concat(extract(YEAR FROM sale_date), '-', extract(MONTH FROM sale_date)) AS selling_month,
     sum(sales_person_id) AS total_customers,
     sum(quantity * products.price) AS income
 FROM sales
