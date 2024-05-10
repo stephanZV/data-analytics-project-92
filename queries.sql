@@ -85,8 +85,7 @@ where bbbb.average_income > (select avg(average_income) from bbbb)
 order by bbbb.average_income
 /* продавцы у кого средняя прибыль больше средней */
 SELECT 
-    concat(extract(YEAR FROM sale_date), '-', extract(MONTH FROM sale_date)) AS selling_month,
-    sum(sales_person_id) AS total_customers,
+to_char(sale_date,'yyyy-mm')     sum(sales_person_id) AS total_customers,
     sum(quantity * products.price) AS income
 FROM sales
 INNER JOIN products
